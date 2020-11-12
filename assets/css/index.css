@@ -1,0 +1,12 @@
+.searchbar{
+    width: 9000px;
+}
+
+.container .list-box .result_box[data-v-79ff736f] {
+    display: flex;
+    width: 100%;
+    padding: 0 13px;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
