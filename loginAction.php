@@ -22,4 +22,5 @@
     } else {
         echo 'Email tidak ditemukan';
     }
+    mysqli_error($conn);
 ?>

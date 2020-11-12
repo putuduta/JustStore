@@ -44,7 +44,7 @@
     </div>
 
     <!-- Login Form  -->
-    <div class="mx-auto mt-lg-3 mb-lg-5 shadow p-3 mb-5 bg-white rounded" style="width: 800px;">
+    <div class="mx-auto mt-lg-3 mb-lg-5 shadow p-3 mb-5 bg-white rounded" style="width: 600px;">
         <div class="card-header bg-light">
             <h3>Login</h3>
             <h8>Don't have JustStore account? <a href="register.php">Register</a></h8>
@@ -67,6 +67,7 @@
 
                 <button type="submit" class="btn btn-primary  btn-block">Login</button>
             </form>
+            <h6 class="text-center mt-3"><a href="">Forget Passoword ?</a></h6>
         </div>
     </div>
 </body>

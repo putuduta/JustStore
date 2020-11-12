@@ -25,16 +25,16 @@
     </nav>
 
     <!-- Image  -->
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div id="carouselExampleControls" class="carousel slide mr-lg-5 ml-lg-5  mb-lg-5"  data-ride="carousel">
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img class="d-block w-100" src="..." alt="First slide">
+            <div class="carousel-item active justify-content-center">
+                <img class="rounded mx-auto d-block w-100" src="assets/images/Alphard.jpg" alt="First slide">
             </div>
-                <div class="carousel-item">
-                <img class="d-block w-100" src="..." alt="Second slide">
+                <div class="carousel-item justify-content-center">
+                <img class="rounded mx-auto d-block w-100" src="assets/images/Alphard.jpg" alt="Second slide">
             </div>
-                <div class="carousel-item">
-                <img class="d-block w-100" src="..." alt="Third slide">
+                <div class="carousel-item justify-content-center">
+                <img class="rounded mx-auto d-block w-100" src="assets/images/Alphard.jpg" alt="Third slide">
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
