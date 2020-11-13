@@ -10,10 +10,12 @@
     $password = $_POST['password'];
     $file = $_FILES['avatar'];
 
-    $fileName = $file['$username'];
+    $fileName = $username;
     $temporaryPath = $file['tmp_name'];
+    $info = new SplFileInfo($file['name']);
+    $extension = pathinfo($info->getFilename(), PATHINFO_EXTENSION);
 
-    $filePath = "assets/user/".$fileName;
+    $filePath = "assets/user/".$fileName.".".$extension;
     $storeTo = $filePath;
     move_uploaded_file($temporaryPath, $storeTo);
 
