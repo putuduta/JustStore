@@ -3,7 +3,8 @@
     include('db.php');
 
     $id = $_GET['id'];
-    $query = "DELETE FROM categories WHERE id='$id'";
+    $query = "DELETE FROM categories
+              WHERE id='$id'";
 
 
     $result = mysqli_query($conn, $query);

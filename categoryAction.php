@@ -16,7 +16,8 @@
     $storeTo = $filePath;
     move_uploaded_file($temporaryPath, $storeTo);
 
-    $query = "INSERT INTO categories (`name`, icon, updatedAt) VALUES ('$name', '$storeTo', '$date')";
+    $query = "INSERT INTO categories (`name`, icon, updatedAt)
+              VALUES ('$name', '$storeTo', '$date')";
 
     $result = mysqli_query($conn, $query);
 

@@ -52,11 +52,11 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form method="POST" action="categoryAction.php" enctype="multipart/form-data">
+                    <form id="addCategory" name="addCategory" method="POST" action="categoryAction.php" enctype="multipart/form-data">
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label" for="name">Name </label>
                             <div class="col-sm-10">
-                                <input type="name" class="form-control" name="name" id="name" placeholder="Category name">
+                                <input type="name" class="form-control" name="name" id="name" placeholder="Category name" required>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -98,7 +98,7 @@
                             <td class="align-left text-left"><?php echo $row["name"]; ?></td>
                             <td class="align-left text-left"><?php
                                 $iconName = explode("/", $row["icon"]);
-                                echo $iconName[2];
+                                echo $row["id"].'-'.$iconName[2];
                             ?></td>
                             <td class="align-right text-right">
                                 <a class="btn btn-sm btn-primary text-white" data-toggle="modal" data-target="#updateModal<?php echo $row["id"]; ?>">U</a>
@@ -169,10 +169,29 @@
             </div>
         </div>
     </div>
+
     <?php
         }
     ?>
 
+    <script>
+        $(document).ready(function() {
+            $('#addCategory').validate({
+                rules: {
+                    name : {
+                        required: true,
+                        minlength: 3
+                    }
+                },
+                messages : {
+                    name: {
+                        required: "Name must be filled",
+                        minlength: "Name should be at least 3 characters"
+                    }
+                }
+            });
+        });
+    </script>
 
 
 </body>
