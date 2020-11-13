@@ -70,6 +70,31 @@
             <h6 class="text-center mt-3"><a href="">Forget Passoword ?</a></h6>
         </div>
     </div>
-</body>
 
+    <script>
+        $(document).ready(function() {
+            $('#login').validate({
+                rules: {
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    password : {
+                        required: true,
+                        minlength: 6
+                    }
+                },
+                messages : {
+                    username: {
+                        minlength: "Name should be at least 3 characters"
+                    },
+                    password: {
+                        minlength: "password should be at least 3 characters"
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
 </html>

@@ -52,7 +52,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="addCourier" name="addCategory" method="POST" action="courierAction.php" enctype="multipart/form-data">
+                    <form id="addCourier" name="addCourier" method="POST" action="courierAction.php" enctype="multipart/form-data">
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label" for="name">Name </label>
                             <div class="col-sm-10">
@@ -131,7 +131,7 @@
                                                 if(mysqli_num_rows($result) > 0) {
                                                     $data = mysqli_fetch_array($resultModal);
                                             ?>
-                                            <form method="POST" action="courierUpdate.php" enctype="multipart/form-data">
+                                            <form id="editCourier" name="editCourier" method="POST" action="courierUpdate.php" enctype="multipart/form-data">
                                                 <div class="form-group row">
                                                     <label class="col-sm-2 col-form-label" for="id">ID </label>
                                                     <div class="col-sm-10 mt-2">
@@ -198,7 +198,7 @@
                     },
                     cost : {
                         required: true,
-                        range:[5000]
+                        min: 5000
                     }
                 },
                 messages : {
@@ -206,7 +206,30 @@
                         minlength: "Name should be at least 3 characters"
                     },
                     cost : {
-                        range: "Cost should be at least 5.000"
+                        min: "Cost should be at least 5.000"
+                    }
+                }
+            });
+        });
+
+        $(document).ready(function() {
+            $('#editCourier').validate({
+                rules: {
+                    name : {
+                        required: true,
+                        minlength: 3
+                    },
+                    cost : {
+                        required: true,
+                        min: 5000
+                    }
+                },
+                messages : {
+                    name: {
+                        minlength: "Name should be at least 3 characters"
+                    },
+                    cost : {
+                        min: "Cost should be at least 5.000"
                     }
                 }
             });

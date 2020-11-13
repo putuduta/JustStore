@@ -123,7 +123,7 @@
                                                 if(mysqli_num_rows($result) > 0) {
                                                     $data = mysqli_fetch_array($resultModal);
                                             ?>
-                                            <form method="POST" action="categoryUpdate.php" enctype="multipart/form-data">
+                                            <form id="editCategory" name="editCategory" method="POST" action="categoryUpdate.php" enctype="multipart/form-data">
                                                 <div class="form-group row">
                                                     <label class="col-sm-2 col-form-label" for="id">ID </label>
                                                     <div class="col-sm-10 mt-2">
@@ -177,6 +177,23 @@
     <script>
         $(document).ready(function() {
             $('#addCategory').validate({
+                rules: {
+                    name : {
+                        required: true,
+                        minlength: 3
+                    }
+                },
+                messages : {
+                    name: {
+                        required: "Name must be filled",
+                        minlength: "Name should be at least 3 characters"
+                    }
+                }
+            });
+        });
+
+        $(document).ready(function() {
+            $('#editCategory').validate({
                 rules: {
                     name : {
                         required: true,

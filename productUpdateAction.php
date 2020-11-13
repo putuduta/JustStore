@@ -4,11 +4,11 @@
     include('db.php');
 
     $id = $_POST['id'];
-    $sequence = $_POST['sequence'];
     $name = $_POST['name'];
-    $hyperlink = $_POST['hyperlink'];
-    $startAt = $_POST['startAt'];
-    $endAt = $_POST['endAt'];
+    $description = $_POST['description'];
+    $price = $_POST['price'];
+    $stock = $_POST['stock'];
+    $category = $_POST['category'];
     $file = $_FILES['image'];
 
     $fileName = $name;
@@ -16,18 +16,18 @@
     $info = new SplFileInfo($file['name']);
     $extension = pathinfo($info->getFilename(), PATHINFO_EXTENSION);
 
-    $filePath = "assets/slider/".$fileName.".".$extension;
+    $filePath = "assets/product/".$fileName.".".$extension;
     $storeTo = $filePath;
     move_uploaded_file($temporaryPath, $storeTo);
 
-    $query = "UPDATE slider
-              SET `sequence` = $sequence, `name` = '$name', hyperlink = '$hyperlink', startAt = '$startAt', endAt = '$endAt', `image` = '$storeTo'
+    $query = "UPDATE product
+              SET `name` = '$name', `description` = '$description', price = '$price', stock = '$stock', category = '$category', `image` = '$storeTo'
               WHERE id = $id";
 
     $result = mysqli_query($conn, $query);
 
     if ($result) {
-        header('location:slider.php');
+        header('location:product.php');
     }
     else echo mysqli_error($conn);
 ?>

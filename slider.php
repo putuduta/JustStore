@@ -35,7 +35,7 @@
 
     <!-- Title -->
     <div class="mx-auto d-flex mt-lg-5 text-primary justify-content-between" style="width: 1000px;">
-        <h2>Slider</h2>
+        <h2>Home Slider</h2>
         <div class="float-right">
             <button type="button" class="btn btn-primary btn-block pr-lg-3 pl-lg-3" data-toggle="modal" data-target="#exampleModal">+Add</button>
         </div>
@@ -158,7 +158,7 @@
                                                 if(mysqli_num_rows($result) > 0) {
                                                     $data = mysqli_fetch_array($resultModal);
                                             ?>
-                                            <form method="POST" action="sliderUpdate.php" enctype="multipart/form-data">
+                                            <form id="editSlider" name="editSlider" method="POST" action="sliderUpdate.php" enctype="multipart/form-data">
                                                 <div class="form-group row">
                                                     <label class="col-sm-2 col-form-label" for="id">ID </label>
                                                     <div class="col-sm-10 mt-2">
@@ -236,6 +236,48 @@
     <script>
         $(document).ready(function() {
             $('#addSlider').validate({
+                rules: {
+                    sequence : {
+                        required: true,
+                        number: true,
+                        min: 1
+                    },
+                    name : {
+                        required: true,
+                        minlength: 5
+                    },
+                    hyperlink : {
+                        required: false,
+                        url: true
+                    },
+                    startAt : {
+                        required: true,
+                        dateISO: true
+                    },
+                    endAt : {
+                        required: false,
+                        min: "#startAt"
+                    }
+                },
+                messages : {
+                    sequence : {
+                        min: "Minimal Sequence is 1"
+                    },
+                    name : {
+                        minlength: "Minimal name length is 5"
+                    },
+                    hyperlink : {
+                        url: "Must be “http” / “https” / “localhost” / “127.0.0.1”"
+                    },
+                    endAt : {
+                        min: "Must be greater than Start At"
+                    }
+                }
+            });
+        });
+
+        $(document).ready(function() {
+            $('#editSlider').validate({
                 rules: {
                     sequence : {
                         required: true,
