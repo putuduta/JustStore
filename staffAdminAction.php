@@ -9,7 +9,7 @@
     $email = $_POST['email'];
     $password = $_POST['password'];
     $file = $_FILES['avatar'];
-    $role = "User";
+    $role = $_POST['role'];
 
     $fileName = $username;
     $temporaryPath = $file['tmp_name'];
