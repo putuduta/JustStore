@@ -27,68 +27,14 @@
 <body>
     <?php @include 'header.php' ?>
 
-    <?php
-        include('db.php');
-
-        $result = mysqli_query($conn, "SELECT * FROM slider ORDER BY `sequence` ASC");
-            if(mysqli_num_rows($result) > 0) {
-    ?>
-
-    `<div class="container">
-        <!-- Image  -->
-        <div id="carouselExampleControls" class="carousel slide mr-lg-5 ml-lg-5  mb-lg-5 mt-2"  data-ride="carousel">
-            <div class="carousel-inner">
-                <?php
-                    $i=0;
-                    while($row = mysqli_fetch_array($result)) {
-                ?>
-                <div class="carousel-item
-                <?php if ($i == 0) {
-                    echo "active";
-                }
-                ?> justify-content-center">
-                    <img class="rounded mx-auto d-block" width="600px" height="400px" src="<?php echo $row["image"]; ?>" alt="First slide">
-                </div>
-                <?php
-                        $i++;
-                    }
-                ?>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
         <?php
-                }
-        ?>
-
-        <?php
-            $category = mysqli_query($conn, "SELECT * FROM categories");
-                if(mysqli_num_rows($category) > 0) {
-        ?>
-        <div class="d-flex justify-content-md-center">
-            <?php
-                $i=0;
-                while($row = mysqli_fetch_array($category)) {
-
-            ?>
-                <button class="btn btn-outline-primary " type="submit"><a href=""><?php echo $row['name'] ?></a></button>
-            <?php
-                    $i++;
-                }
-            ?>
-        </div>
-        <?php
+            include('db.php');
+            $search = $_POST['search'];
+            if ($search) {
+               $check = mysqli_query($conn, "SELECT * FROM product WHERE `name` LIKE '%".$search."%'");
+            } else {
+                $check = mysqli_query($conn, "SELECT * FROM product ");
             }
-        ?>
-
-        <?php
-            $check = mysqli_query($conn, "SELECT * FROM product");
                 if(mysqli_num_rows($check) > 0) {
         ?>
         <div class="row justify-content-md-center">

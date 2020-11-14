@@ -6,10 +6,10 @@
 	</button>
 	<!-- Collection of nav links, forms, and other content for toggling -->
 	<div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
-		<form class="navbar-form form-inline">
+		<form  action="searching.php" method="POST" enctype="multipart/form-data" class="navbar-form form-inline">
 			<div class="input-group search-box">
-				<input type="text" id="search" class="form-control" placeholder="Search here...">
-				<span class="input-group-addon"><i class="material-icons">&#xE8B6;</i></span>
+                    <input type="text" id="search" name="search" class="form-control" placeholder="Search here...">
+                    <button class="btn btn-sm btn-bg-light"><i class="material-icons">&#xE8B6;</i></button>
 			</div>
 		</form>
 		<div class="navbar-nav ml-auto">

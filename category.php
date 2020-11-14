@@ -48,7 +48,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="addCategory" name="addCategory" method="POST" action="category/categoryAction.php" enctype="multipart/form-data">
+                    <form id="addCategory" name="addCategory" method="POST" action="categoryAction.php" enctype="multipart/form-data">
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label" for="name">Name </label>
                             <div class="col-sm-10">
@@ -98,7 +98,7 @@
                             ?></td>
                             <td class="align-right text-right">
                                 <a class="btn btn-sm btn-primary text-white" data-toggle="modal" data-target="#updateModal<?php echo $row["id"]; ?>">U</a>
-                                <a class="btn btn-sm  btn-warning text-white" href="category/categoryDelete.php?id=<?php echo $row['id']; ?>">D</a>
+                                <a class="btn btn-sm  btn-warning text-white" href="categoryDelete.php?id=<?php echo $row['id']; ?>">D</a>
                             </td>
 
                             <!-- Modal Update -->

@@ -247,8 +247,7 @@
                         url: true
                     },
                     startAt : {
-                        required: true,
-                        dateISO: true
+                        required: true
                     },
                     endAt : {
                         required: false,
@@ -289,12 +288,10 @@
                         url: true
                     },
                     startAt : {
-                        required: true,
-                        dateISO: true
+                        required: true
                     },
                     endAt : {
                         required: false,
-                        dateISO: true,
                         min: "#startAt"
                     }
                 },
