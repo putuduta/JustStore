@@ -1,5 +1,5 @@
 <?php
-    include('session.php');
+    session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,20 +18,13 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/index.css">
 </head>
 
 <body>
-    <!-- NavBar -->
-    <nav class="navbar navbar-light bg-light justify-content-between">
-        <a class="navbar-brand">JustStore</a>
-        <form class="form-inline">
-            <input class="form-control searchbar" type="search" placeholder="Search" aria-label="Search">
-        </form>
-        <div class="float-right">
-            <button class="btn btn-outline-primary " type="submit"><a href="login.php">Login</a></button>
-            <button class="btn btn-outline-primary " type="submit"><a href="register.php">Register</a></button>
-        </div>
-    </nav>
+    <?php @include 'header.php' ?>
 
     <!-- Collapse Content  -->
     <div class="mx-auto mt-lg-3 mb-lg-5 shadow p-3 mb-5 bg-white rounded" style="width: 1000px;">
@@ -47,7 +40,7 @@
 
                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                 <div class="card-body">
-                    <form id="registration" name="registration" method="POST" action="staffAdminAction.php" enctype="multipart/form-data">
+                    <form id="addStaffAdmin" name="addStaffAdmin" method="POST" action="staffAdminAction.php" enctype="multipart/form-data">
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label" for="role">Role </label>
                             <div class="col-sm-10">
@@ -151,6 +144,67 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#addStaffAdmin').validate({
+                rules: {
+                    username : {
+                        required: true,
+                        minlength: 3
+                    },
+                    gender : {
+                        required: true,
+                    },
+                    address : {
+                        required: true,
+                        minlength: 10
+                    },
+                    phone : {
+                        required: true,
+                        number: true,
+                        minlength: 10
+                    },
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    password : {
+                        required: true,
+                        minlength: 6
+                    },
+                    repassword : {
+                        required : true,
+                        minlength: 6,
+                        equalTo: "#password"
+                    }
+                },
+                messages : {
+                    username: {
+                        minlength: "Name should be at least 3 characters"
+                    },
+                    gender: {
+                        minlength: "gender should be at least 3 characters"
+                    },
+                    address: {
+                        minlength: "address should be at least 3 characters"
+                    },
+                    phone: {
+                        required: "Please enter your phone",
+                        number: "Please enter your age as a numerical value",
+                        min: "it must be 10 numeric vales"
+                    },
+                    email: {
+                        email: "The email should be in the format: abc@domain.tld"
+                    },
+                    password: {
+                        minlength: "password should be at least 3 characters"
+                    }
+                }
+            });
+        });
+    </script>
+
 
 </body>
 </html>

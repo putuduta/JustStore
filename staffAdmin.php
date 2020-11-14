@@ -1,5 +1,5 @@
 <?php
-    include('session.php');
+    session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,20 +18,13 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/index.css">
 </head>
 
 <body>
-    <!-- NavBar -->
-    <nav class="navbar navbar-light bg-light justify-content-between">
-        <a class="navbar-brand">JustStore</a>
-        <form class="form-inline">
-            <input class="form-control searchbar" type="search" placeholder="Search" aria-label="Search">
-        </form>
-        <div class="float-right">
-            <button class="btn btn-outline-primary " type="submit"><a href="login.php">Login</a></button>
-            <button class="btn btn-outline-primary " type="submit"><a href="register.php">Register</a></button>
-        </div>
-    </nav>
+    <?php @include 'header.php' ?>
 
     <!-- Title -->
     <div class="mx-auto d-flex mt-lg-5 text-primary justify-content-between" style="width: 1000px;">

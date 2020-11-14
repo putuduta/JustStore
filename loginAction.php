@@ -11,7 +11,7 @@
 
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
-        if ($row['password'] === $password) {
+        if (password_verify($password, $row['password'])) {
             session_start();
             $_SESSION['email'] = $email;
             setcookie('email', $email, time()+3600);
