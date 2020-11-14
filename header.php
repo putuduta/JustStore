@@ -1,6 +1,6 @@
 <!-- NavBar -->
 <nav class="navbar navbar-expand-xl  bg-dark">
-	<a href="#" class="navbar-brand">JustStore</b></a>
+	<a href="home.php" class="navbar-brand">JustStore</b></a>
 	<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
 		<span class="navbar-toggler-icon"></span>
 	</button>

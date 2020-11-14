@@ -58,8 +58,11 @@
                        <input type="password" class="form-control" name="password" id="password" placeholder="Password">
                     </div>
                 </div>
-
-                <button type="submit" class="btn btn-primary  btn-block">Login</button>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="rememberme" name="rememberme" value="true">
+                    <label class="form-check-label" for="rememberme">Remember Me</label>
+                </div>
+                <button type="submit" class="btn btn-primary  btn-block mt-2">Login</button>
             </form>
             <h6 class="text-center mt-3"><a href="">Forget Passoword ?</a></h6>
         </div>
@@ -83,7 +86,7 @@
                         minlength: "Name should be at least 3 characters"
                     },
                     password: {
-                        minlength: "password should be at least 3 characters"
+                        minlength: "password should be at least 6 characters"
                     }
                 }
             });

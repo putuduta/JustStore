@@ -3,6 +3,7 @@
 
     $email = $_POST['email'];
     $password = $_POST['password'];
+    $rememberme = $_POST['rememberme'];
 
     $query = "SELECT * FROM user WHERE
               email = '$email'";
@@ -14,7 +15,9 @@
         if (password_verify($password, $row['password'])) {
             session_start();
             $_SESSION['email'] = $email;
-            setcookie('email', $email, time()+3600);
+            if ($rememberme == 'true') {
+                setcookie('email', $email, time()+3600);
+            }
             header("location:home.php");
         } else {
             echo 'Password incorrect';

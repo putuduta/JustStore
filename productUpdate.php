@@ -1,6 +1,8 @@
-
 <?php
     session_start();
+    if(!$_SESSION['email']) {
+        header("location:home.php");
+    }
 ?>
 
 <!DOCTYPE html>
