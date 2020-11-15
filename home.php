@@ -34,7 +34,8 @@
             if(mysqli_num_rows($result) > 0) {
     ?>
 
-    `<div class="container">
+    <!-- Content  -->
+    <div class="container">
         <!-- Image  -->
         <div id="carouselExampleControls" class="carousel slide mr-lg-5 ml-lg-5  mb-lg-5 mt-2"  data-ride="carousel">
             <div class="carousel-inner">

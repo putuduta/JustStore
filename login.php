@@ -2,8 +2,10 @@
     include('session.php');
 
     $cookieUsername = ' ';
-    if (isset($_COOKIE['email'])) {
+    $cookiePassword = ' ';
+    if (isset($_COOKIE['email']) && isset($_COOKIE['password'])) {
         $cookieUsername = $_COOKIE['email'];
+        $cookiePassword = $_COOKIE['password'];
     }
 ?>
 <!DOCTYPE html>
@@ -55,7 +57,7 @@
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label" for="password">Password </label>
                     <div class="col-sm-10">
-                       <input type="password" class="form-control" name="password" id="password" placeholder="Password">
+                       <input type="password" class="form-control" name="password" id="password" placeholder="Password" value="<?php echo $cookiePassword ?>">
                     </div>
                 </div>
                 <div class="form-check">
@@ -64,9 +66,38 @@
                 </div>
                 <button type="submit" class="btn btn-primary  btn-block mt-2">Login</button>
             </form>
-            <h6 class="text-center mt-3"><a href="">Forget Passoword ?</a></h6>
+            <h6 class="text-center mt-3"><a href="" data-toggle="modal" data-target="#forgetPassword">
+                Forget Passoword ?
+            </a></h6>
         </div>
     </div>
+
+       <!-- Modal Forget Password -->
+        <div class="modal fade" id="forgetPassword" tabindex="-1" role="dialog" aria-labelledby="forgetPassword" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Forget Password</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="POST" action="forgetPassword.php" enctype="multipart/form-data">
+                            <h6>Please enter your registration email id</h6>
+                            <p>We will send a new password to your registration email</p>
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label" for="email">Email</label>
+                                <div class="col-sm-10">
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="email">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary  btn-block">Reset Password</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     <script>
         $(document).ready(function() {

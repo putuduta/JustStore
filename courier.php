@@ -67,7 +67,7 @@
                                 <input type="file" class="form-control" name="icon" id="icon" placeholder="No file chosen">
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary  btn-block">Add Category</button>
+                        <button type="submit" class="btn btn-primary  btn-block">Add Courier</button>
                     </form>
                 </div>
             </div>
@@ -114,7 +114,7 @@
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="updateModalLabel">Edit Category</h5>
+                                            <h5 class="modal-title" id="updateModalLabel">Edit Courier</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                             </button>
@@ -138,7 +138,7 @@
                                                 <div class="form-group row">
                                                     <label class="col-sm-2 col-form-label" for="name">Name </label>
                                                     <div class="col-sm-10">
-                                                        <input type="name" class="form-control" name="name" id="name" placeholder="Categoryname" value="<?php echo $data["name"]; ?>">
+                                                        <input type="name" class="form-control" name="name" id="name" placeholder="Couriername" value="<?php echo $data["name"]; ?>">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">

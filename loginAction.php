@@ -17,6 +17,7 @@
             $_SESSION['email'] = $email;
             if ($rememberme == 'true') {
                 setcookie('email', $email, time()+3600);
+                setcookie('password', $password, time()+3600);
             }
             header("location:home.php");
         } else {
