@@ -57,7 +57,10 @@
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label" for="password">Password </label>
                     <div class="col-sm-10">
-                       <input type="password" class="form-control" name="password" id="password" placeholder="Password" value="<?php echo $cookiePassword ?>">
+
+                       <input type="password" class="form-control" name="password" id="password" placeholder="Password" <?php
+                            if($cookiePassword != ' ') {
+                            ?> value="<?php echo $cookiePassword ?> <?php } ?>">
                     </div>
                 </div>
                 <div class="form-check">
